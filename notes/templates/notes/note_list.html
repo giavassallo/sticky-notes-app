@@ -1,0 +1,26 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+<div class="'mb-4 text-center">
+    <a href="{% url 'note_create' %}" class="btn btn-primary">+ New Note📝</a>
+</div>
+
+<div class="note-board">
+    {% for note in notes %}
+        <div class="note-card
+            {% if forloop.counter|divisibleby:5 %}note-pink
+            {% elif forloop.counter|divisibleby:4 %}note-blue
+            {% elif forloop.counter|divisibleby:3 %}note-purple
+            {% elif forloop.counter|divisibleby:2 %}note-grey
+            {% else %}note-white
+            {% endif %}">
+            <h5>{{ note.title }}</h5>
+            <p>{{note.content }}</p>
+            <a href="{% url 'note_update' note.pk %}" class="btn btn-warning btn-small me-1">Edit✏️</a>
+            <a href="{% url 'note_delete' note.pk %}" class="btn btn-danger btn-small">Delete❌</a>
+        </div>
+    {% empty %}
+        <p>No notes yet...add one!!</p>
+    {% endfor %}
+</div>
+{% endblock %}
