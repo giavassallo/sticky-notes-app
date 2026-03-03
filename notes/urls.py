@@ -1,3 +1,9 @@
+"""
+URL config for Notes App
+
+Maps URL patterns to views functions that
+handle CRUD ops.
+"""
 from django.urls import path
 from . import views
 
