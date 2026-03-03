@@ -1,11 +1,23 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
+"""
+Django's command-line utility for administrative tasks
+
+Allows execution of managemnet commands:
+    - runserver
+    - migrate
+    - makemigrations
+    - createsuperuser
+"""
 import os
 import sys
 
+"""
+Execute admin tasks using Django command-line
 
+Sets default settings module and delegates command-line
+arguments to Django managemnet system
+"""
 def main():
-    """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sticky_notes.settings')
     try:
         from django.core.management import execute_from_command_line
