@@ -19,11 +19,11 @@ class Note(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-"""
-Return a readable string of the note
-
-Return:
-    str: title of note
-"""
     def __str__(self):
+        """
+        Return a readable string of the note
+
+        Return:
+            str: title of note
+        """
         return self.title
